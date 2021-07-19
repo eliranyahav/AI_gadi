@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 # how to plot graph
 
 x=[1,5]
@@ -41,4 +42,22 @@ a= np.array([ [1,2,3,4,5,6,7,8,9,10],
 categories = np.array([0,0,0,1,1,1,1,2,2,2])
 colormap = np.array(['r', 'g', 'b'])
 plt.scatter(a[0], a[1], s=50, c=colormap[categories]) # s - the radius of the dot, colormap gets 0,1,2 correponding to categories and r,g,b
+plt.show()
+
+data = np.array( [ [ 6.0 , 7.0, 5.0],
+[ 2.0 , 3.0, 7.0],
+[ 3.0 , 7.0, 2.0],
+[ 4.0 , 4.0, 8.0],
+[ 5.0 , 8.0, 9.0],
+[ 6.0 , 5.0, 7.0],
+[ 7.0 , 9.0, 4.0],
+[ 8.0 , 5.0, 1.0],
+[ 8.0 , 2.0, 3.0],
+[10.0 , 2.0, 5.0] ])
+categories = np.array([0,1,1,1,1,2,2,2,2,2])
+colormap = np.array(['r', 'g', 'b'])
+
+fig = plt.figure()
+ax = Axes3D(fig)
+ax.scatter(data[:,0], data[:,1],data[:,2], s=150, c=colormap[categories])
 plt.show()
