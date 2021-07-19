@@ -61,3 +61,10 @@ fig = plt.figure()
 ax = Axes3D(fig)
 ax.scatter(data[:,0], data[:,1],data[:,2], s=150, c=colormap[categories])
 plt.show()
+
+
+
+x=np.arange(-100,100,1)
+y=pow(x,4)
+plt.plot(x,y)
+plt.show()
