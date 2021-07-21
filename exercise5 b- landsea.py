@@ -18,16 +18,16 @@ print("\nland_list:\n",land_list)'''
 
 
 sea_colors = []
-for i in range(1,5):
+for i in range(1,10):                                      # open picture from folder
     img = Image.open("c:/pictures/sea" + str(i) + ".jpg")
     img.load()
-    data = np.array(img, dtype=np.uint8)
+    data = np.array(img, dtype=np.uint8)         # derive pixels data
     t= []
     for i in range(3):
-        t.append(data[:,:,i].sum() / data[:,:,i].size)
-    sea_colors.append(t)
+        t.append(data[:,:,i].sum() / data[:,:,i].size)        #for each picture, saving the average color R,G,B
+    sea_colors.append(t)    # put the 3 component on list
 land_colors = list()
-for i in range(1,5):
+for i in range(1,10):
     img = Image.open("c:/pictures/land" + str(i) + ".jpg")
     img.load()
     data = np.array(img, dtype=np.uint8)
@@ -45,11 +45,9 @@ sea_array2 = sea_array[:,2]
 land_array1 = land_array[:,0]
 land_array2= land_array[:,2]
 plt.plot(sea_array1 , sea_array2 , 'bo', land_array1, land_array2, 'r+')
-plt.xlabel("green")
+plt.xlabel("red")
 plt.ylabel("blue")
 plt.title("Sea or Land option 1")
-plt.show()
-
 
 
 # green blue
@@ -61,8 +59,8 @@ land_array2= land_array[:,2]
 plt.plot(sea_array1 , sea_array2 , 'bo', land_array1, land_array2, 'r+')
 plt.xlabel("green")
 plt.ylabel("blue")
-plt.title("Sea or Land option 3")
-plt.show()
+plt.title("Sea or Land option 2")
+
 #red green
 plt.subplot(133)
 sea_array1 = sea_array[:,0]
@@ -72,5 +70,5 @@ land_array2= land_array[:,1]
 plt.plot(sea_array1 , sea_array2 , 'bo', land_array1, land_array2, 'r+')
 plt.xlabel("red")
 plt.ylabel("green")
-plt.title("Sea or Land option 2")
+plt.title("Sea or Land option 3")
 plt.show()
